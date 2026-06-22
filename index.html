@@ -45,7 +45,6 @@
                     <button class="btn btn-dark btn-lg mt-2" id="color-btn">Click for a Surprise</button>
                 </div>
                 <div class="col-lg-5 text-center">
-                    <!-- You can replace this with a real image later! -->
                     <img src="/mypic.png" class="img-fluid rounded shadow" alt="Placeholder Image">
                 </div>
             </div>
@@ -54,7 +53,6 @@
             <div class="row text-center mb-5">
                 <h2 class="mb-4">Explore the Site</h2>
                 
-                <!-- Teaser 1: About -->
                 <div class="col-md-4 mb-4">
                     <div class="card h-100 shadow-sm border-0">
                         <div class="card-body">
@@ -66,7 +64,6 @@
                     </div>
                 </div>
 
-                <!-- Teaser 2: Hobbies -->
                 <div class="col-md-4 mb-4">
                     <div class="card h-100 shadow-sm border-0">
                         <div class="card-body">
@@ -78,7 +75,6 @@
                     </div>
                 </div>
 
-                <!-- Teaser 3: Contact -->
                 <div class="col-md-4 mb-4">
                     <div class="card h-100 shadow-sm border-0">
                         <div class="card-body">
@@ -93,43 +89,32 @@
             </div>
         </div>
 
-        <!-- SIMPLE FOOTER -->
         <footer class="bg-dark text-white text-center py-3 mt-auto">
             <p class="mb-0">Built with 💻 and ☕ for CS50</p>
         </footer>  
         <script>
-            // 1. Select the surprise button
             let surpriseBtn = document.querySelector('#color-btn');
 
-            // 2. Listen for the click
             surpriseBtn.addEventListener('click', function() {
                 
-                // 3. Loop to create 40 emojis
                 for (let i = 0; i < 40; i++) {
-                    // We use setTimeout to stagger them so they don't all fall in one clump!
                     setTimeout(createCoffee, i * 50); 
                 }
             });
 
-            // 4. The function that actually builds a single coffee emoji
             function createCoffee() {
                 let coffee = document.createElement('div');
                 coffee.innerHTML = '☕';
                 coffee.classList.add('coffee-emoji');
 
-                // Randomize the starting position (left to right)
                 coffee.style.left = Math.random() * 100 + 'vw';
                 
-                // Randomize the size (between 15px and 35px)
                 coffee.style.fontSize = Math.random() * 20 + 15 + 'px';
                 
-                // Randomize how fast they fall (between 2 and 4 seconds)
                 coffee.style.animationDuration = Math.random() * 2 + 2 + 's';
 
-                // Add the emoji to the screen
                 document.body.appendChild(coffee);
 
-                // Delete the emoji after 4 seconds so your computer doesn't crash from too many!
                 setTimeout(() => {
                     coffee.remove();
                 }, 4000);
